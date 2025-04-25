@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
+import env from '../common/env.js';
 
-import dotenv from 'dotenv';
-dotenv.config();
-
-
-export const connectDB = async ()=>{
+const connectDB = async ()=>{
     try{
-        await mongoose.connect([process.env.MONGODB_URI]);
+        await mongoose.connect(env.MONGODB_URI);
             console.log("Kobanwa Mongo");
     }catch(error)
     {
         console.log(`MongoDB connection error: ${error.message}`);
     }
 }
+
+export default connectDB;
+
