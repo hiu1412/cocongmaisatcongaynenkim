@@ -13,17 +13,21 @@ export const registerUser = async (username, email, password, confirmPassword) =
             throw new Error('Email đã tồn tại');
         }
 
+        if (!username || !email || !password || !confirmPassword) {
+            throw new Error('Vui lòng điền đầy đủ thông tin');
+        }
+
         if(!validator.isEmail(email))
         {
             throw new Error('Email không hợp lệ');
         }
         
-        if(password.lenght<6)
+        if(password.length<6)
         {
             throw new Error('Mật khẩu phải có ít nhất 6 ký tự');
         }
 
-        if(password !== confirmPassword)
+        if(password !== confirmPassword)//cái confirmPassword này không nhất cần phải có trong model useruser
         {
             throw new Error('Mật khẩu không khớp');
         }
@@ -37,7 +41,6 @@ export const registerUser = async (username, email, password, confirmPassword) =
             username,
             email,
             password: hashedPassword,
-            confirmPassword,
             role: 'user',
             isActive: true
         })

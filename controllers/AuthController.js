@@ -5,15 +5,15 @@ const register = async (req,res) =>
 {   
     const{username,email,password,confirmPassword, role} = req.body;
     try{
-        const user = await registerUser(username,email,password,confirmPassword, role);
+        const data = await registerUser(username,email,password,confirmPassword, role);
         
-        const data = {
-            id: user._id,
-            username: user.username,
-            email: user.email,
-        };
-        
-        res.json({success: true, data, message: 'Đăng ký thành công'});
+        res.json({success: true,
+             data: {
+                id: data._id,
+                username: data.username,
+                email: data.email,
+            },
+              message: 'Đăng ký thành công'});
     }catch(error){
         res.status(400).json({success: false, message: error.message});
     }
