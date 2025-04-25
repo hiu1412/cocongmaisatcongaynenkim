@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import client from "./config/redis.js";
 
 dotenv.config();
 
@@ -13,9 +14,7 @@ app.use(cors({
     credentials: true, 
 }));
 
-client.on('connect', () => {
-    console.log("Redis client is ready to use!");
-});
+
 
 
 app.get("/", async (req, res) => {

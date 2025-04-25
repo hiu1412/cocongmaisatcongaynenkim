@@ -4,10 +4,16 @@
   "main": "index.js",
   "type": "module",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongoose": "^8.13.3"
+    "mongoose": "^8.13.3",
+    "nodemon": "^3.1.10",
+    "redis": "^4.7.0"
   }
 }

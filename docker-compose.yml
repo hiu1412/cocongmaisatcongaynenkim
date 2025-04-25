@@ -20,7 +20,7 @@ services:
       - "6379:6379"
       - "8002:8001"
     environment:
-      - REDIS_ARGS=--requirepass rootredis
+      - REDIS_ARGS=--requirepass rootredis 
     networks:
       - app-network
 
